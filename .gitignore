@@ -1,6 +1,7 @@
 target/
 pet-clinic-web/target/
 pet-clinic-data/target/
+pet-clinic-web/target
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -25,3 +26,6 @@ pet-clinic-data/target/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+*.releaseBackup
+release.properties
