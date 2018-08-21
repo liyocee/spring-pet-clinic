@@ -1,16 +1,15 @@
 package com.liyosi.springpetclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.liyosi.springpetclinic.model.BaseEntity;
+
+import java.util.*;
 
 /**
  * Created by liyosi on Aug, 2018
  */
-public abstract class AbstractMapService<T, ID> {
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 
-  protected Map<ID, T> map = new HashMap<>();
+  protected Map<Long, T> map = new HashMap<>();
 
   public Set<T> findAll() {
     return new HashSet<>(map.values());
@@ -20,8 +19,13 @@ public abstract class AbstractMapService<T, ID> {
     return map.get(id);
   }
 
-  public T save(ID id, T object) {
-    map.put(id, object);
+  public T save(T object) {
+
+    if (object != null && object.getId() == null) {
+      object.setId(getNextId());
+
+      map.put(object.getId(), object);
+    }
     return object;
   }
 
@@ -31,5 +35,12 @@ public abstract class AbstractMapService<T, ID> {
 
   public void deleteById(ID id) {
     map.remove(id);
+  }
+
+  private Long getNextId() {
+    if (map.isEmpty())
+      return 1L;
+
+    return Collections.max(map.keySet()) + 1;
   }
 }
