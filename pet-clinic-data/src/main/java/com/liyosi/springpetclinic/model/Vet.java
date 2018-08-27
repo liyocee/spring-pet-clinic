@@ -9,6 +9,9 @@ public class Vet extends Person {
 
   private Set<Speciality> specialities;
 
+  public Vet() {
+  }
+
   public Vet(Set<Speciality> specialities) {
     this.specialities = specialities;
   }

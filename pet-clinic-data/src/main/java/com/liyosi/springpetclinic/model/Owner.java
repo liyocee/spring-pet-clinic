@@ -11,6 +11,9 @@ public class Owner extends Person {
   private String city;
   private String telephone;
 
+  public Owner() {
+  }
+
   public Owner(Set<Pet> pets, String address, String city, String telephone) {
     this.pets = pets;
     this.address = address;
