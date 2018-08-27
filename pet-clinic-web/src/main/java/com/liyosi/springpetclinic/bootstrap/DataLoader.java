@@ -1,6 +1,7 @@
 package com.liyosi.springpetclinic.bootstrap;
 
 import com.liyosi.springpetclinic.model.Owner;
+import com.liyosi.springpetclinic.model.Pet;
 import com.liyosi.springpetclinic.model.PetType;
 import com.liyosi.springpetclinic.model.Vet;
 import com.liyosi.springpetclinic.services.OwnerService;
@@ -8,6 +9,8 @@ import com.liyosi.springpetclinic.services.PetTypeService;
 import com.liyosi.springpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 /**
  * Created by liyosi on Aug, 2018
@@ -41,12 +44,33 @@ public class DataLoader implements CommandLineRunner {
     Owner owner1 = new Owner();
     owner1.setFirstName("Michael");
     owner1.setLastName("Weston");
+    owner1.setAddress("123 Brickrel");
+    owner1.setCity("Miami");
+    owner1.setTelephone("12122121");
+
+
+    Pet mikesPet = new Pet();
+    mikesPet.setName("Mikes Dog");
+    mikesPet.setPetType(dog);
+    mikesPet.setBirthDate(LocalDate.now());
+
+    owner1.getPets().add(mikesPet);
 
     ownerService.save(owner1);
 
     Owner owner2 = new Owner();
     owner2.setFirstName("Fiona");
     owner2.setLastName("Glenane");
+    owner2.setAddress("123 Lincoln Blvd");
+    owner2.setCity("New York");
+    owner2.setTelephone("2121212");
+
+    Pet fionasCat = new Pet();
+    fionasCat.setName("Fionas CAt");
+    fionasCat.setPetType(cat);
+    fionasCat.setBirthDate(LocalDate.now());
+
+    owner2.getPets().add(fionasCat);
 
     ownerService.save(owner2);
 

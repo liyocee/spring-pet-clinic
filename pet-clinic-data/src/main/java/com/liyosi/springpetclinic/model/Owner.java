@@ -1,12 +1,13 @@
 package com.liyosi.springpetclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by liyosi on Aug, 2018
  */
 public class Owner extends Person {
-  private Set<Pet> pets;
+  private Set<Pet> pets = new HashSet<>();
   private String address;
   private String city;
   private String telephone;
