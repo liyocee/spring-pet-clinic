@@ -1,14 +1,28 @@
 package com.liyosi.springpetclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
  * Created by liyosi on Aug, 2018
  */
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
-  private PetType petType;
-  private Owner owner;
+
+  @Column(name = "birth_date")
+  private LocalDate birthDate;
+
+  @Column(name = "name")
   private String name;
+
+  @ManyToOne
+  @JoinColumn(name = "owner_id")
+  private Owner owner;
+
+  @ManyToOne
+  @JoinColumn(name = "type_id")
+  private PetType petType;
 
   public PetType getPetType() {
     return petType;
@@ -34,7 +48,6 @@ public class Pet extends BaseEntity {
     this.birthDate = birthDate;
   }
 
-  private LocalDate birthDate;
 
   public String getName() {
     return name;
