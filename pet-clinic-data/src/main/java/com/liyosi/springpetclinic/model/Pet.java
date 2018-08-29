@@ -2,6 +2,8 @@ package com.liyosi.springpetclinic.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by liyosi on Aug, 2018
@@ -23,6 +25,9 @@ public class Pet extends BaseEntity {
   @ManyToOne
   @JoinColumn(name = "type_id")
   private PetType petType;
+
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+  private Set<Visits> visits = new HashSet<>();
 
   public PetType getPetType() {
     return petType;
@@ -55,5 +60,13 @@ public class Pet extends BaseEntity {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Set<Visits> getVisits() {
+    return visits;
+  }
+
+  public void setVisits(Set<Visits> visits) {
+    this.visits = visits;
   }
 }
