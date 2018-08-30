@@ -84,6 +84,8 @@ public class DataLoader implements CommandLineRunner {
     owner2.setCity("New York");
     owner2.setTelephone("2121212");
 
+//    Owner.builder().address("fa").firstName("kl").lastName("blea").telephone("faj").build();
+
     Pet fionasCat = new Pet();
     fionasCat.setName("Fionas CAt");
     fionasCat.setPetType(cat);
@@ -96,16 +98,15 @@ public class DataLoader implements CommandLineRunner {
     System.out.println("Loaded owners....");
 
 
-    Vet vet1 = new Vet();
-    vet1.setFirstName("Sam");
-    vet1.setLastName("Axe");
+    Vet vet1 = Vet.builder()
+        .firstName("Sam")
+        .lastName("Axe").build();
     vet1.getSpecialities().add(savedRadiology);
 
     vetService.save(vet1);
 
-    Vet vet2 = new Vet();
-    vet2.setFirstName("Jessie");
-    vet2.setLastName("Porter");
+    Vet vet2 = Vet.builder().firstName("Jessie").lastName("Porter").build();
+
     vet2.getSpecialities().add(savedSurgery);
 
     vetService.save(vet2);
