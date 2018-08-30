@@ -3,6 +3,8 @@ package com.liyosi.springpetclinic.services.jpa;
 import com.liyosi.springpetclinic.model.Speciality;
 import com.liyosi.springpetclinic.repositories.SpecialityRepository;
 import com.liyosi.springpetclinic.services.CrudService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,6 +12,8 @@ import java.util.Set;
 /**
  * Created by liyosi on Aug, 2018
  */
+@Service
+@Profile("springdatajpa")
 public class SpecialityService implements CrudService<Speciality, Long> {
   private final SpecialityRepository specialityRepository;
 
