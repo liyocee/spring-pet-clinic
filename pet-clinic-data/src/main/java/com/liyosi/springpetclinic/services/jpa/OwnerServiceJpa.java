@@ -2,6 +2,7 @@ package com.liyosi.springpetclinic.services.jpa;
 
 import com.liyosi.springpetclinic.model.Owner;
 import com.liyosi.springpetclinic.repositories.OwnerRepository;
+import com.liyosi.springpetclinic.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +13,12 @@ import java.util.Set;
  * Created by liyosi on Aug, 2018
  */
 @Service
-@Profile("springdatajpa")
-public class OwnerService implements com.liyosi.springpetclinic.services.OwnerService {
+@Profile("jpa")
+public class OwnerServiceJpa implements OwnerService {
 
   private final OwnerRepository ownerRepository;
 
-  public OwnerService(OwnerRepository ownerRepository) {
+  public OwnerServiceJpa(OwnerRepository ownerRepository) {
     this.ownerRepository = ownerRepository;
   }
 

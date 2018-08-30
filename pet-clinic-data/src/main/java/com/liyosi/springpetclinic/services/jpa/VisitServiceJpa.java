@@ -2,7 +2,7 @@ package com.liyosi.springpetclinic.services.jpa;
 
 import com.liyosi.springpetclinic.model.Visits;
 import com.liyosi.springpetclinic.repositories.VisitRepository;
-import com.liyosi.springpetclinic.services.CrudService;
+import com.liyosi.springpetclinic.services.VisitService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +13,12 @@ import java.util.Set;
  * Created by liyosi on Aug, 2018
  */
 @Service
-@Profile("springdatajpa")
-public class VisitService implements CrudService<Visits, Long> {
+@Profile("jpa")
+public class VisitServiceJpa implements VisitService {
 
   private VisitRepository visitRepository;
 
-  public VisitService(VisitRepository visitRepository) {
+  public VisitServiceJpa(VisitRepository visitRepository) {
     this.visitRepository = visitRepository;
   }
 

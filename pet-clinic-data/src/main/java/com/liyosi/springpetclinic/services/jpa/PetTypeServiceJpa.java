@@ -2,7 +2,7 @@ package com.liyosi.springpetclinic.services.jpa;
 
 import com.liyosi.springpetclinic.model.PetType;
 import com.liyosi.springpetclinic.repositories.PetTypeRepository;
-import com.liyosi.springpetclinic.services.CrudService;
+import com.liyosi.springpetclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +13,11 @@ import java.util.Set;
  * Created by liyosi on Aug, 2018
  */
 @Service
-@Profile("springdatajpa")
-public class PetTypeService implements CrudService<PetType, Long> {
+@Profile("jpa")
+public class PetTypeServiceJpa implements PetTypeService {
   private final PetTypeRepository petTypeRepository;
 
-  public PetTypeService(PetTypeRepository petTypeRepository) {
+  public PetTypeServiceJpa(PetTypeRepository petTypeRepository) {
     this.petTypeRepository = petTypeRepository;
   }
 

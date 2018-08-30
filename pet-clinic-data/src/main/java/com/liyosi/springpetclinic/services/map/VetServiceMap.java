@@ -3,12 +3,14 @@ package com.liyosi.springpetclinic.services.map;
 import com.liyosi.springpetclinic.model.Vet;
 import com.liyosi.springpetclinic.services.SpecialityService;
 import com.liyosi.springpetclinic.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by liyosi on Aug, 2018
  */
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
   private final SpecialityService specialityService;

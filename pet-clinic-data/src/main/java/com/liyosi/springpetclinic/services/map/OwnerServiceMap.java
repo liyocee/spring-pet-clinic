@@ -4,12 +4,14 @@ import com.liyosi.springpetclinic.model.Owner;
 import com.liyosi.springpetclinic.services.OwnerService;
 import com.liyosi.springpetclinic.services.PetService;
 import com.liyosi.springpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by liyosi on Aug, 2018
  */
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
   private final PetTypeService petTypeService;
