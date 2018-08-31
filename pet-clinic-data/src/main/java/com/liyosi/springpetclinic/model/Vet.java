@@ -19,7 +19,11 @@ public class Vet extends Person {
   @Builder
   public Vet(String firstName, String lastName, Set<Speciality> specialities) {
     super(firstName, lastName);
-    this.specialities = specialities;
+    if (specialities == null) {
+      this.specialities = new HashSet<>();
+    } else {
+      this.specialities = specialities;
+    }
   }
 
   @ManyToMany(fetch = FetchType.EAGER)
